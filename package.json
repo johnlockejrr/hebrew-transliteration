@@ -1,6 +1,6 @@
 {
   "name": "hebrew-transliteration",
-  "version": "2.9.1",
+  "version": "2.9.0",
   "description": "a package for transliterating Hebrew",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -54,7 +54,8 @@
     "update": "npm-check-updates -u",
     "docs:output": "typedoc --tsconfig ./.config/tsconfig.json --json ./docs/data.json src/index.ts",
     "docs:dev": "astro dev --config ./docs/astro.config.mjs",
-    "docs": "NODE_ENV=production astro build --config ./docs/astro.config.mjs"
+    "docs": "NODE_ENV=production astro build --config ./docs/astro.config.mjs",
+    "csv:transliterate": "node --enable-source-maps ./scripts/transliterate_csv.mjs ./heb_corpus.csv ./heb_corpus_tiberian.csv"
   },
   "files": [
     "dist/**/*"
