@@ -66,17 +66,23 @@ export const romaniote: Schema = {
   DIVINE_NAME: "Αδωνάη",
   ADDITIONAL_FEATURES: [
     {
+      TITLE: "Zayin with Dagesh",
+      DESCRIPTION: "Transliterate zayin with dagesh as 'τζ'.",
       FEATURE: "cluster",
       HEBREW: "זּ",
       TRANSLITERATION: "τζ"
     },
     {
+      TITLE: "Final Shin or Samekh",
+      DESCRIPTION: "Transliterate final instances of shin or samekh as using final sigma.",
       FEATURE: "cluster",
       // final shin or samekh
       HEBREW: /(\u{05E9}\u{05C2}|\u{05E9}|\u{05E1})$/u,
       TRANSLITERATION: "ς"
     },
     {
+      TITLE: "Final Sin",
+      DESCRIPTION: "Transliterate final instances of sin as using final sigma.",
       FEATURE: "syllable",
       // final sin
       HEBREW: /\u{05E9}\u{05C1}$/u,
@@ -88,6 +94,8 @@ export const romaniote: Schema = {
       }
     },
     {
+      TITLE: "Patach or Qamats Yod",
+      DESCRIPTION: "Transliterate instances of patach or qamats followed by yod as 'αη'.",
       FEATURE: "syllable",
       // patach or qamats yod
       HEBREW:
@@ -105,12 +113,16 @@ export const romaniote: Schema = {
       }
     },
     {
+      TITLE: "Consonantal Yod with Hiriq",
+      DESCRIPTION: "Transliterate consonantal yod with hiriq as 'γι'.",
       FEATURE: "cluster",
       // consonantal yod with hiriq as vowel
       HEBREW: /(\u{05D9}\u{05B4})/u,
       TRANSLITERATION: "γι"
     },
     {
+      TITLE: "Tsere Yod",
+      DESCRIPTION: "Transliterate instances of tsere followed by yod as 'αι' in final position and 'ε' otherwise.",
       FEATURE: "syllable",
       // tsere yod
       HEBREW:
@@ -131,8 +143,10 @@ export const romaniote: Schema = {
       }
     },
     {
+      TITLE: "Hiriq Yod",
+      DESCRIPTION:
+        "Transliterate instances of hiriq followed by yod as 'ή' or 'η' in final position and 'ί' or 'ι' otherwise.",
       FEATURE: "syllable",
-      // hiriq yod
       HEBREW:
         /(?<hiriqYod>\u{05B4}[\u{0590}-\u{05AF}\u{05BD}\u{05BF}]?\u{05D9}[\u{0590}-\u{05AF}\u{05BD}\u{05BF}]?)(?<maqqaf>\u{05BE}?)$/u,
       TRANSLITERATION: (syllable, hebrew) => {
@@ -152,6 +166,8 @@ export const romaniote: Schema = {
       }
     },
     {
+      TITLE: "Masculine Plural Marker",
+      DESCRIPTION: "Transliterate instances of the masculine plural marker as 'είμ'.",
       FEATURE: "syllable",
       // masculine plural marker
       HEBREW: /(\u{05B4}[\u{0590}-\u{05AF}\u{05BD}\u{05BF}]?\u{05D9}\u{05DD})/u,

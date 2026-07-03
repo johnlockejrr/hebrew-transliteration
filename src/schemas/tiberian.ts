@@ -68,6 +68,8 @@ export const tiberian: Schema = {
   STRESS_MARKER: { location: "before-syllable", mark: "ˈ" },
   ADDITIONAL_FEATURES: [
     {
+      TITLE: "Yod with Dagesh",
+      DESCRIPTION: "Transliterate a yod with a dagesh as a palatal plosive (ɟɟ).",
       FEATURE: "cluster",
       HEBREW: "\u{05D9}\u{05BC}",
       TRANSLITERATION: (cluster, hebrew) => {
@@ -75,6 +77,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Tav with Dagesh",
+      DESCRIPTION: "The schema value is a digraph which needs to be handled differently depending on context.",
       FEATURE: "cluster",
       HEBREW: /תּ/u,
       TRANSLITERATION: (cluster, heb, schema) => {
@@ -116,6 +120,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Pe with Dagesh",
+      DESCRIPTION: "The schema value is a digraph which needs to be handled differently depending on context.",
       FEATURE: "cluster",
       HEBREW: /פ/u,
       TRANSLITERATION: (cluster, heb, schema) => {
@@ -146,6 +152,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Kaf with Dagesh",
+      DESCRIPTION: "The schema value is a digraph which needs to be handled differently depending on context.",
       FEATURE: "cluster",
       HEBREW: /כּ|ךּ/u,
       TRANSLITERATION: (cluster, heb, schema) => {
@@ -176,6 +184,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Tet with Dagesh",
+      DESCRIPTION: "The schema value is a digraph which needs to be handled differently depending on context.",
       FEATURE: "cluster",
       HEBREW: /טּ/u,
       TRANSLITERATION: (cluster, heb, schema) => {
@@ -206,6 +216,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Tsadi with Dagesh",
+      DESCRIPTION: "The schema value is a digraph which needs to be handled differently depending on context.",
       FEATURE: "cluster",
       HEBREW: /צּ/u,
       TRANSLITERATION: (cluster, heb, schema) => {
@@ -236,6 +248,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Quiescent Alef",
+      DESCRIPTION: "Transliterate an alef with no vowel as quiesced.",
       FEATURE: "cluster",
       HEBREW: /\u{05D0}(?![\u{05B1}-\u{05BB}\u{05C7}])/u,
       TRANSLITERATION: (cluster, heb) => {
@@ -248,6 +262,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Alef with Dagesh",
+      DESCRIPTION: "Remove the dagesh from an alef.",
       FEATURE: "cluster",
       HEBREW: "\u{05D0}\u{05BC}",
       TRANSLITERATION: (cluster) => {
@@ -256,6 +272,9 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Pharyngealized Resh",
+      DESCRIPTION:
+        "Transliterate a resh as pharyngealized depending on context with surrounding alveolars and other consonants.",
       FEATURE: "syllable",
       HEBREW: /ר/u,
       TRANSLITERATION: (syllable) => {
@@ -295,6 +314,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Furtive Patach before Het",
+      DESCRIPTION: "Transliterate a furtive patach before a het when preceded by vav or yod.",
       FEATURE: "syllable",
       HEBREW: "ח\u{05B7}\u{05C3}?$",
       PASS_THROUGH: true,
@@ -315,6 +336,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Furtive Patach before Ayin",
+      DESCRIPTION: "Transliterate a furtive patach before an ayin when preceded by vav or yod.",
       FEATURE: "syllable",
       HEBREW: "ע\u{05B7}\u{05C3}?$",
       PASS_THROUGH: true,
@@ -334,6 +357,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Furtive Patach before He",
+      DESCRIPTION: "Transliterate a furtive patach before a he when preceded by vav or yod.",
       FEATURE: "syllable",
       HEBREW: "ה\u{05BC}\u{05B7}\u{05C3}?$",
       PASS_THROUGH: true,
@@ -353,6 +378,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Word initial shureq",
+      DESCRIPTION: "Transliterate a shureq at the beginning of a word as wuː.",
       FEATURE: "syllable",
       HEBREW: /וּ(?![\u{05B4}-\u{05BB}])/u,
       TRANSLITERATION: (syllable, _, schema) => {
@@ -376,6 +403,9 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Full Vowel Syllable",
+      DESCRIPTION:
+        "Matches any syllable that has a full vowel character (i.e. not sheva) and determines the appropriate transliteration for length.",
       FEATURE: "syllable",
       HEBREW: /[\u{05B4}-\u{05BB}\u{05C7}]/u,
       TRANSLITERATION: (syllable, _, schema) => {
@@ -497,6 +527,9 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Hataf Vowel Syllable",
+      DESCRIPTION:
+        "Matches any syllable that has a hataf vowel character and determines the appropriate transliteration.",
       FEATURE: "syllable",
       HEBREW: /[\u{05B1}-\u{05B3}]/u,
       TRANSLITERATION: (syllable) => {
@@ -560,6 +593,9 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Syllable with Sheva",
+      DESCRIPTION:
+        "Matches any syllable that contains a sheva that is not preceded by a full vowel character or shureq and determines the appropriate transliteration.",
       FEATURE: "syllable",
       HEBREW: /(?<!.*([\u{05B4}-\u{05BB}\u{05C7}]|\u{05D5}\u{05BC}).*)\u{05B0}/u,
       TRANSLITERATION: (syllable, _hebrew, schema) => {
@@ -630,6 +666,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Jerusalem",
+      DESCRIPTION: "Transliterate instances of Jerusalem spelled without a yod to match the later spelling convention.",
       FEATURE: "syllable",
       HEBREW: /^\u{5B4}\u{5DD}/u,
       TRANSLITERATION: (syl, heb, schema) => {
@@ -653,6 +691,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Issachar",
+      DESCRIPTION: "Transliterate instances of the name Issachar",
       FEATURE: "word",
       HEBREW: /(וְ)?יִשָּׂשכָר/,
       PASS_THROUGH: true,
@@ -667,6 +707,8 @@ export const tiberian: Schema = {
       }
     },
     {
+      TITLE: "Interrogative in construct",
+      DESCRIPTION: "Transliterate instances of the interrogative word in construct form.",
       FEATURE: "word",
       HEBREW: "מַה־",
       TRANSLITERATION: (word, heb, schema) => {

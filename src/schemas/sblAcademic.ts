@@ -393,6 +393,9 @@ export class SBL extends Schema {
     this.SYLLABLE_SEPARATOR = schema.SYLLABLE_SEPARATOR ?? undefined;
     this.ADDITIONAL_FEATURES = schema.ADDITIONAL_FEATURES ?? [
       {
+        TITLE: "Defective Long Vowels",
+        DESCRIPTION:
+          "Transliterate syllables with a hiriq or qubuts written defectively (i.e. without a mater) when in an accented syllable.",
         FEATURE: "syllable",
         HEBREW: /[\u{05B4}\u{05BB}]/u,
         TRANSLITERATION: (syllable, heb, schema) => {
@@ -408,6 +411,9 @@ export class SBL extends Schema {
         }
       },
       {
+        TITLE: "Euphonic Dagesh",
+        DESCRIPTION:
+          "Remove the dagesh from syllables that have a euphonic dagesh in the context of a preceding word in construct state.",
         FEATURE: "syllable",
         HEBREW: "\u{05BC}",
         TRANSLITERATION: (syllable, heb) => {

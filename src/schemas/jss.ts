@@ -66,6 +66,9 @@ export const jss: Schema = {
   DIVINE_NAME: "yhwh",
   ADDITIONAL_FEATURES: [
     {
+      TITLE: "Qamets Qatan Syllable",
+      DESCRIPTION:
+        "Matches syllables that contain a qamets qatan character and if the following syllable contains a hateph qamets, replaces the qamets qatan with a regular qamets.",
       FEATURE: "syllable",
       // if the syllable contains a qamets qatan character
       HEBREW: /\u{05C7}/u,
