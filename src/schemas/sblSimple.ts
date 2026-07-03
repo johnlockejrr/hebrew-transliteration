@@ -63,11 +63,15 @@ export const sblSimple: Schema = {
   DIVINE_NAME: "yhwh",
   ADDITIONAL_FEATURES: [
     {
+      TITLE: "Shin with Dagesh",
+      DESCRIPTION: "Transliterate shin with dagesh as 'sh'",
       FEATURE: "cluster",
       HEBREW: "\u{05E9}\u{05C1}\u{05BC}",
       TRANSLITERATION: "sh"
     },
     {
+      TITLE: "Tsadi with Dagesh",
+      DESCRIPTION: "Transliterate tsadi with dagesh as 'ts'",
       FEATURE: "cluster",
       HEBREW: "\u{05E6}\u{05BC}",
       TRANSLITERATION: "ts"

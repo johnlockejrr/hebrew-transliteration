@@ -7,6 +7,45 @@ import type { Word } from "havarotjs/word";
 // export for documentation
 export type { SylOpts };
 
+export interface FeatureMetaData {
+  /**
+   * The title of the feature.
+   *
+   * @example
+   *
+   * ```js
+   * transliterate("וְאֵ֥ת הָאָֽרֶץ", {
+   *  ADDITIONAL_FEATURES: [{
+   *    TITLE: "Transliterate 'The Earth' as a whole word",
+   *    DESCRIPTION: "Transliterate 'The Earth' as a whole word rather than individual characters. Just an example.",
+   *    FEATURE: "word",
+   *    HEBREW: "הָאָרֶץ",
+   *    TRANSLITERATION: "The Earth"
+   *  }]
+   * });
+   * ```
+   */
+  TITLE?: string;
+  /**
+   * The description of the feature.
+   *
+   * @example
+   *
+   * ```js
+   * transliterate("וְאֵ֥ת הָאָֽרֶץ", {
+   *  ADDITIONAL_FEATURES: [{
+   *    TITLE: "Transliterate 'The Earth' as a whole word",
+   *    DESCRIPTION: "Transliterate 'The Earth' as a whole word rather than individual characters. Just an example.",
+   *    FEATURE: "word",
+   *    HEBREW: "הָאָרֶץ",
+   *    TRANSLITERATION: "The Earth"
+   *  }]
+   * });
+   * ```
+   */
+  DESCRIPTION?: string;
+}
+
 export interface HebrewFeature {
   /**
    * The Hebrew text — use consonants and vowels; do not use taamim
@@ -88,7 +127,7 @@ export interface PassThrough {
  */
 export type WordCallback = (word: Word, hebrew: string | RegExp, schema: Schema) => string;
 
-export interface WordFeature extends HebrewFeature, PassThrough {
+export interface WordFeature extends FeatureMetaData, HebrewFeature, PassThrough {
   /**
    * Additional orthographic feature.
    *
@@ -149,7 +188,7 @@ export interface WordFeature extends HebrewFeature, PassThrough {
  */
 export type SyllableCallback = (syllable: Syllable, hebrew: string | RegExp, schema: Schema) => string;
 
-export interface SyllableFeature extends HebrewFeature, PassThrough {
+export interface SyllableFeature extends FeatureMetaData, HebrewFeature, PassThrough {
   /**
    * Additional orthographic feature:
    *
@@ -208,7 +247,7 @@ export interface SyllableFeature extends HebrewFeature, PassThrough {
  */
 export type ClusterCallback = (cluster: Cluster, hebrew: string | RegExp, schema: Schema) => string;
 
-export interface ClusterFeature extends HebrewFeature, PassThrough {
+export interface ClusterFeature extends FeatureMetaData, HebrewFeature, PassThrough {
   /**
    * Additional orthographic feature.
    *
