@@ -2,6 +2,10 @@
 
 ## Version 2
 
+- v2.11.0
+  - add optional title and description field to ADDITIONAL_FEATURES (PR #196)
+
+
 - v2.10.2
   - fixes issue #178 that had an incorrect tiberian transliteration (PR #193)
 
